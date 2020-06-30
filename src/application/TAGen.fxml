@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane focusTraversable="true" prefHeight="681.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TAGenController">
+   <children>
+      <SplitPane dividerPositions="0.1032258064516129" focusTraversable="false" layoutY="-6.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="678.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="676.0">
+               <children>
+                  <Label layoutX="6.0" prefHeight="67.0" prefWidth="414.0" text="基于NSHA辅助驾驶场景的验证模型自动生成器软件" textFill="#eb400c" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="help_bt" layoutX="489.0" layoutY="34.0" mnemonicParsing="false" onAction="#helpButton" text="帮助" />
+                  <Button fx:id="exit_bt" layoutX="557.0" layoutY="34.0" mnemonicParsing="false" onAction="#ExitButton" text="退出" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="676.0">
+               <children>
+                  <SplitPane layoutX="-1.0" layoutY="-1.0" prefHeight="607.0" prefWidth="676.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <SplitPane dividerPositions="0.29797979797979796" layoutX="-1.0" prefHeight="607.0" prefWidth="678.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="594.0" prefWidth="201.0">
+                                       <children>
+                                          <SplitPane dividerPositions="0.4262023217247098" orientation="VERTICAL" prefHeight="605.0" prefWidth="198.0">
+                                            <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="196.0">
+                                                   <children>
+                                                      <Label layoutX="31.0" layoutY="2.0" prefHeight="23.0" prefWidth="116.0" text="场景数据输入">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button fx:id="input_sv" layoutX="51.0" layoutY="38.0" mnemonicParsing="false" onAction="#openInput_sv" prefHeight="24.0" prefWidth="96.0" text="周边车辆数据" />
+                                                      <Button fx:id="input_selfego" layoutX="50.0" layoutY="69.0" mnemonicParsing="false" onAction="#openInput_sf" prefHeight="23.0" prefWidth="96.0" text="自身车辆数据" />
+                                                      <Button fx:id="input_person" layoutX="51.0" layoutY="98.0" mnemonicParsing="false" onAction="#openInput_sf" prefHeight="23.0" prefWidth="96.0" text="周边行人数据" />
+                                                      <Button fx:id="input_weather" layoutX="51.0" layoutY="127.0" mnemonicParsing="false" onAction="#openInput_wea" prefHeight="23.0" prefWidth="96.0" text="天气数据" />
+                                                      <Button fx:id="input_road" layoutX="51.0" layoutY="161.0" mnemonicParsing="false" onAction="#openInput_road" prefHeight="23.0" prefWidth="96.0" text="道路数据" />
+                                                      <Button fx:id="input_tl" layoutX="50.0" layoutY="192.0" mnemonicParsing="false" onAction="#openInput_traffic" prefHeight="23.0" prefWidth="96.0" text="红绿灯数据" />
+                                                      <Button fx:id="input_driver" layoutX="12.0" layoutY="222.0" mnemonicParsing="false" onAction="#openInput_driver" prefHeight="23.0" prefWidth="175.0" text="驾驶员mdp概率迁移矩阵" />
+                                                   </children>
+                                                </AnchorPane>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <Label layoutX="6.0" layoutY="4.0" prefHeight="36.0" prefWidth="187.0" text="场景对象状态判定">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button fx:id="state_sv" layoutX="54.0" layoutY="47.0" mnemonicParsing="false" onAction="#generateSV_State" text="周边车辆状态序列" />
+                                                      <Button fx:id="state_sf" layoutX="54.0" layoutY="78.0" mnemonicParsing="false" onAction="#generateSF_tate" text="自身车辆状态序列" />
+                                                      <Button fx:id="state_person" layoutX="54.0" layoutY="112.0" mnemonicParsing="false" onAction="#generatePerson_State" text="周边行人状态序列" />
+                                                      <Button fx:id="state_wea" layoutX="66.0" layoutY="149.0" mnemonicParsing="false" onAction="#generateWeather_State" text="天气状态序列" />
+                                                      <Button fx:id="state_road" layoutX="66.0" layoutY="185.0" mnemonicParsing="false" onAction="#generateRoad_State" text="道路状态序列" />
+                                                      <Button fx:id="state_tl" layoutX="60.0" layoutY="217.0" mnemonicParsing="false" onAction="#generateTL_State" text="红绿灯状态序列" />
+                                                      <Button fx:id="state_scene" layoutX="54.0" layoutY="266.0" mnemonicParsing="false" onAction="#generateALLFile_State" prefHeight="36.0" prefWidth="112.0" text="场景状态序列">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                            </items>
+                                          </SplitPane>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="465.0">
+                                       <children>
+                                          <SplitPane dividerPositions="0.6826446280991736" layoutX="-1.0" layoutY="1.0" orientation="VERTICAL" prefHeight="607.0" prefWidth="472.0">
+                                            <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="436.0" prefWidth="470.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.46170212765957447" layoutY="-1.0" prefHeight="410.0" prefWidth="472.0">
+                                                        <items>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <Label layoutY="1.0" text="场景特征树生成">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Button fx:id="tree_gen" layoutX="49.0" layoutY="191.0" mnemonicParsing="false" onAction="#treeGen" prefHeight="53.0" prefWidth="116.0" text="场景特征树生成" />
+                                                                  <Button fx:id="tree_show" layoutX="49.0" layoutY="268.0" mnemonicParsing="false" onAction="#showTree" prefHeight="53.0" prefWidth="116.0" text="查看场景特征树" />
+                                                                  <TextField fx:id="Intial_driverState" layoutX="27.0" layoutY="73.0" promptText="请输入初始状态......" />
+                                                                  <Label layoutX="27.0" layoutY="48.0" text="输入驾驶员初始状态" />
+                                                                  <Button fx:id="Qdbutton" layoutX="114.0" layoutY="104.0" mnemonicParsing="false" onAction="#QdriverButton" prefHeight="23.0" prefWidth="74.0" text="确定" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="257.0">
+                                                               <children>
+                                                                  <Label layoutX="7.0" layoutY="2.0" text="SHA网络的XML文件生成">
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Button fx:id="model_sv" layoutX="80.0" layoutY="32.0" mnemonicParsing="false" onAction="#generateXML" text="周边车辆模型生成" />
+                                                                  <Button fx:id="model_sf" layoutX="80.0" layoutY="63.0" mnemonicParsing="false" onAction="#generateXML" text="自身车辆模型生成" />
+                                                                  <Button fx:id="model_person" layoutX="80.0" layoutY="92.0" mnemonicParsing="false" onAction="#generateXML" text="周边行人模型生成" />
+                                                                  <Button fx:id="model_wea" layoutX="78.0" layoutY="123.0" mnemonicParsing="false" onAction="#generateXML" prefHeight="23.0" prefWidth="113.0" text="天气模型生成" />
+                                                                  <Button fx:id="model_road" layoutX="80.0" layoutY="154.0" mnemonicParsing="false" onAction="#generateXML" prefHeight="23.0" prefWidth="112.0" text="道路模型生成" />
+                                                                  <Button fx:id="model_tf" layoutX="79.0" layoutY="186.0" mnemonicParsing="false" onAction="#generateXML" prefHeight="23.0" prefWidth="113.0" text="红绿灯模型生成" />
+                                                                  <Button fx:id="model_driver" layoutX="79.0" layoutY="216.0" mnemonicParsing="false" onAction="#generateXML" prefHeight="23.0" prefWidth="112.0" text="驾驶员模型生成" />
+                                                                  <Button fx:id="TA_gen" layoutX="74.0" layoutY="304.0" mnemonicParsing="false" onAction="#generateALLXML" prefHeight="44.0" prefWidth="116.0" text="NSHA模型生成" />
+                                                                  <Button fx:id="TA_monitor" layoutX="79.0" layoutY="247.0" mnemonicParsing="false" onAction="#generateMonitorXML" prefHeight="23.0" prefWidth="113.0" text="检测器模型生成" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <TextArea fx:id="result_show" layoutX="1.0" layoutY="-6.0" prefHeight="195.0" prefWidth="470.0" promptText="结果显示区域" />
+                                                   </children>
+                                                </AnchorPane>
+                                            </items>
+                                          </SplitPane>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
